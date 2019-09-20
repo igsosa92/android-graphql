@@ -9,6 +9,7 @@ apply from: '../jacoco.gradle'
 apply from: '../quality.gradle'
 apply from: '../scripts/warp/warp_task.gradle'
 apply from: '../scripts/sanity/sanity_task.gradle'
+apply plugin: 'com.apollographql.android'
 
 idea {
     module {
@@ -22,7 +23,7 @@ android {
     buildToolsVersion '28.0.3'
 
     defaultConfig {
-        applicationId "ar.com.wolox.android.example"
+        applicationId "ar.com.wolox.android.graphql"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
@@ -136,4 +137,6 @@ dependencies {
     testImplementation "org.mockito:mockito-inline:$mockito_inline_version" // Mockito inline adds support for mocking final classes and methods
     testImplementation "org.assertj:assertj-core:$assertj_version"
     testImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
+    implementation "com.apollographql.apollo:apollo-runtime:0.3.2"
+    implementation "com.apollographql.apollo:apollo-android-support:0.3.2"
 }
