@@ -2,7 +2,7 @@
   <img height="200px" width="500px" src="https://user-images.githubusercontent.com/4109119/32070030-42060272-ba8b-11e7-8609-469decac7029.png"/>
 </p>
 
-# Wolox Android Bootstrap
+# Wolox Android Bootstrap with Apollo
 
 This is the base template project that we use at [Wolox](https://www.wolox.com.ar/) for new Android applications.
 
