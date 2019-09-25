@@ -5,13 +5,14 @@ import com.apollographql.apollo.FeedQuery
 import javax.inject.Inject
 
 class GraphQLPresenter @Inject constructor(
-    private val interactor: FeedInteractor
+    private val interactor: FeedInteractor,
+    private val activity: GraphQLActivity
 ) : BasePresenter<GraphQLView>(), FeedContract.Callback {
 
-    private var showLoading : Boolean? = null
+    private var showLoading: Boolean? = null
         set(value) {
             field = value
-            value?.let { view.showLoading(it) }
+            value?.let { activity.showLoading(it) }
         }
 
     fun getFeed(limit: Int) {
@@ -21,12 +22,12 @@ class GraphQLPresenter @Inject constructor(
 
     override fun getFeedSuccess(feedEntries: List<FeedQuery.FeedEntry>) {
         showLoading = false
-        view.showResult(feedEntries)
+        activity.showResult(feedEntries)
     }
 
     override fun getFeedError(error: String) {
         showLoading = false
-        view.showError(error)
+        activity.showError(error)
     }
 
     fun onViewDestroyed() {
