@@ -8,18 +8,24 @@ class GraphQLPresenter @Inject constructor(
     private val interactor: FeedInteractor
 ) : BasePresenter<GraphQLView>(), FeedContract.Callback {
 
+    private var showLoading : Boolean? = null
+        set(value) {
+            field = value
+            value?.let { view.showLoading(it) }
+        }
+
     fun getFeed(limit: Int) {
-        view.showLoading()
+        showLoading = true
         interactor.getFeedFromApollo(limit, this)
     }
 
     override fun getFeedSuccess(feedEntries: List<FeedQuery.FeedEntry>) {
-        view.hideLoading()
+        showLoading = false
         view.showResult(feedEntries)
     }
 
     override fun getFeedError(error: String) {
-        view.hideLoading()
+        showLoading = false
         view.showError(error)
     }
 

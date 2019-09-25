@@ -13,10 +13,6 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".example.ui.example.ExampleActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".example.ui.graphql.GraphQLActivity"
             android:screenOrientation="portrait">
 
@@ -26,10 +22,6 @@
             </intent-filter>
 
         </activity>
-
-        <activity
-            android:name=".example.ui.viewpager.ViewPagerActivity"
-            android:screenOrientation="portrait" />
 
     </application>
 

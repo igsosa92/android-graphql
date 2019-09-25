@@ -4,11 +4,6 @@ import com.apollographql.apollo.FeedQuery
 
 interface FeedContract {
 
-//    interface Presenter {
-//
-//        fun getFeed(limit: Int)
-//    }
-
     interface Interactor {
 
         fun getFeedFromApollo(limit: Int, callback: Callback)

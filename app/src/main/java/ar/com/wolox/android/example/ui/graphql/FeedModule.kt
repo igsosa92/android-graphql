@@ -27,14 +27,10 @@ abstract class FeedModule {
         @Provides
         @JvmStatic
         fun provideFeedPresenter(
-            view: GraphQLView,
             interactor: FeedInteractor
         ) = GraphQLPresenter(interactor)
     }
 
     @Binds
     abstract fun provideFeedView(mainActivity: GraphQLActivity): GraphQLView
-//
-//    @Binds
-//    internal abstract fun bindPresenter(mainPresenter: GraphQLPresenter): GraphQLPresenter
 }
